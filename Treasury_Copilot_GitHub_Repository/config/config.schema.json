@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Treasury Copilot Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["provider", "model", "apiKeySource", "requestTimeoutMs", "maxOutputTokens", "temperature", "structuredOutput", "mode"],
+  "properties": {
+    "provider": {"type":"string","enum":["openai"]},
+    "model": {"type":"string","minLength":1},
+    "apiKeySource": {"type":"string","const":"OPENAI_API_KEY environment variable"},
+    "requestTimeoutMs": {"type":"integer","minimum":1000,"maximum":120000},
+    "maxOutputTokens": {"type":"integer","minimum":300,"maximum":5000},
+    "temperature": {"type":"number","minimum":0,"maximum":1},
+    "structuredOutput": {"type":"boolean"},
+    "mode": {"type":"string","enum":["development","production"]}
+  }
+}

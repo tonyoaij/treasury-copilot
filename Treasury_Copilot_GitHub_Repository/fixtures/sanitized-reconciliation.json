@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T02:00:00+03:00",
+  "requestContext": {
+    "requestId": "req-demo-20260721-001",
+    "organisationId": "ORG-DEMO-001",
+    "reconciliationId": "REC-DEMO-2026-06",
+    "userRole": "Reviewer",
+    "permissions": ["CanViewBankReconciliation", "CanReview"],
+    "clientType": "static_fixture",
+    "readOnly": true
+  },
+  "reconciliation": {
+    "organisationId": "ORG-DEMO-001",
+    "reconciliationId": "REC-DEMO-2026-06",
+    "bankAccountId": "BANK-DEMO-001",
+    "bankName": "Community Trust Bank",
+    "maskedAccountNumber": "•••• 4821",
+    "currency": "KES",
+    "statementStartDate": "2026-06-01",
+    "statementEndDate": "2026-06-30",
+    "openingStatementBalance": 1248500,
+    "closingStatementBalance": 1392750,
+    "systemOpeningBalance": 1248500,
+    "systemClosingBalance": 1362250,
+    "status": "Prepared"
+  },
+  "lines": [
+    {"organisationId":"ORG-DEMO-001","reconciliationId":"REC-DEMO-2026-06","evidenceId":"EV-BANK-001","lineId":"BRL-001","source":"Bank","transactionDate":"2026-06-28","description":"Member receipts batch","reference":"DEP-0628","debit":0,"credit":185000,"matchStatus":"Matched","matchType":"Group","matchGroupId":"GRP-014"},
+    {"organisationId":"ORG-DEMO-001","reconciliationId":"REC-DEMO-2026-06","evidenceId":"EV-SYS-001","lineId":"BRL-002","source":"System","transactionDate":"2026-06-28","description":"Receipt batch A","reference":"RCPT-A","debit":0,"credit":95000,"matchStatus":"Matched","matchType":"Group","matchGroupId":"GRP-014"},
+    {"organisationId":"ORG-DEMO-001","reconciliationId":"REC-DEMO-2026-06","evidenceId":"EV-SYS-002","lineId":"BRL-003","source":"System","transactionDate":"2026-06-28","description":"Receipt batch B","reference":"RCPT-B","debit":0,"credit":90000,"matchStatus":"Matched","matchType":"Group","matchGroupId":"GRP-014"},
+    {"organisationId":"ORG-DEMO-001","reconciliationId":"REC-DEMO-2026-06","evidenceId":"EV-BANK-002","lineId":"BRL-004","source":"Bank","transactionDate":"2026-06-29","description":"Unidentified incoming transfer","reference":"TRX-8842","debit":0,"credit":42500,"matchStatus":"Unmatched"},
+    {"organisationId":"ORG-DEMO-001","reconciliationId":"REC-DEMO-2026-06","evidenceId":"EV-BANK-003","lineId":"BRL-005","source":"Bank","transactionDate":"2026-06-30","description":"Bank service charge","reference":"FEE-JUN","debit":12000,"credit":0,"matchStatus":"Unmatched"},
+    {"organisationId":"ORG-DEMO-001","reconciliationId":"REC-DEMO-2026-06","evidenceId":"EV-SYS-003","lineId":"BRL-006","source":"System","transactionDate":"2026-06-30","description":"Supplier payment awaiting bank presentation","reference":"PAY-193","debit":0,"credit":0,"matchStatus":"Unmatched"}
+  ],
+  "adjustments": [
+    {"organisationId":"ORG-DEMO-001","reconciliationId":"REC-DEMO-2026-06","evidenceId":"EV-ADJ-001","adjustmentId":"ADJ-001","adjustmentType":"Expense","amount":12000,"status":"Prepared","transactionDate":"2026-06-30","description":"Bank service charge adjustment awaiting review"}
+  ],
+  "evidence": [
+    {"evidenceId":"EV-HDR-001","sourceType":"reconciliation_header","sourceId":"REC-DEMO-2026-06","label":"Prepared reconciliation header","amount":30500,"currency":"KES","status":"Prepared"},
+    {"evidenceId":"EV-BANK-001","sourceType":"reconciliation_line","sourceId":"BRL-001","label":"Matched bank receipt group","date":"2026-06-28","amount":185000,"currency":"KES","status":"Matched"},
+    {"evidenceId":"EV-SYS-001","sourceType":"reconciliation_line","sourceId":"BRL-002","label":"Matched system receipt A","date":"2026-06-28","amount":95000,"currency":"KES","status":"Matched"},
+    {"evidenceId":"EV-SYS-002","sourceType":"reconciliation_line","sourceId":"BRL-003","label":"Matched system receipt B","date":"2026-06-28","amount":90000,"currency":"KES","status":"Matched"},
+    {"evidenceId":"EV-BANK-002","sourceType":"statement_line","sourceId":"BRL-004","label":"Unidentified incoming transfer","date":"2026-06-29","amount":42500,"currency":"KES","status":"Unmatched","description":"Sanitized transfer description"},
+    {"evidenceId":"EV-BANK-003","sourceType":"statement_line","sourceId":"BRL-005","label":"Bank service charge","date":"2026-06-30","amount":-12000,"currency":"KES","status":"Unmatched"},
+    {"evidenceId":"EV-SYS-003","sourceType":"reconciliation_line","sourceId":"BRL-006","label":"Outstanding supplier payment","date":"2026-06-30","amount":0,"currency":"KES","status":"Unmatched"},
+    {"evidenceId":"EV-ADJ-001","sourceType":"adjustment","sourceId":"ADJ-001","label":"Prepared expense adjustment","date":"2026-06-30","amount":12000,"currency":"KES","status":"Prepared"}
+  ]
+}
